@@ -1,0 +1,117 @@
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+  <link rel="shortcut icon" href="img/favicon.png">
+  <title>bchain | Be part of the revolution!</title>
+
+  <!-- UI -->
+  <link rel="stylesheet" href="css/simple-grid.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet">
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="css/input.css" />
+
+  <!-- web3js -->
+  <script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js/dist/web3.min.js"></script>
+
+  <!-- jquery -->
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+
+  <!-- custom -->
+  <script src="js/main.js" charset="utf-8"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-118746661-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-118746661-1');
+  </script>
+
+</head>
+<body>
+
+    <div id="particles-js"></div>
+
+    <div class="container">
+      <div class="row">
+
+
+        <div class="col-12">
+          <img id="logo" src="img/logo.png" />
+          <p id="slogan">Be part of the <b>revolution</b>!</p>
+        </div>
+
+        <div class="col-12" id="topwebsite" style="display:none">
+          <a href="#">
+            <div class="card row">
+              <div class="col-7" style="padding: 0px; margin: 0px;">
+                <img id="website_image" src="" />
+              </div>
+              <div class="col-5">
+                <h1 id="website_title"></h1>
+                <p id="website_description"></p>
+
+                <img src="img/ic_link.png" class="ic_link" />
+
+                <p id="price"><b>Ξ</b><span id="price_value"></span> <span class="green">▲</span></p>
+              </div>
+            </div>
+          </a>
+        </div>
+
+    </div>
+
+    <div class="row footer" style="display: none">
+      <div class="col-12">
+        <span onclick="$('#createBid').show(); $('html,body').animate({scrollTop: 1000},'slow');">Your link on the blockchain</span>
+      </div>
+    </div>
+
+    <p class="gray" style="font-size: 16px;">b<b>chain</b> is a <a target="_blank" href="https://en.wikipedia.org/wiki/Smart_contract">smart contract</a> running on the <a target="_blank" href="https://ethereum.org/">Ethereum</a> <a target="_blank" href="https://en.wikipedia.org/wiki/Blockchain">blockchain</a>. You can replace the link above with yours by <a  class="primaryColor" href="#" onclick="$('#createBid').show();  $('html,body').animate({scrollTop: 1000},'slow'); return false;"><b>bidding</b></a> more than <b><span id="currentBid">...</span>Ξ</b> (the last bid). Everything is processed automatically by <a target="_blank"  href="https://etherscan.io/address/0x206511bA47E35ae9E1b9d7B001B5C4fD965587F8">our smart contract</a>.</p>
+
+    <div id="createBid" style="display: none;">
+
+      <p class="gray" style="font-size: 16px;">This will create an Ethereum transaction using <a href="https://metamask.io/" target="_blank">MetaMask</a> or similar. Make sure you have it installed.</p>
+      <br />
+      <div class="fancyInput">
+        <div class="group">
+          <input type="text" id="bid_url" required>
+          <span class="highlight"></span>
+          <span class="bar"></span>
+          <label>What is your URL?</label>
+        </div>
+      </div>
+
+      <div class="fancyInput">
+        <div class="group">
+          <input type="text" id="bid_value" required>
+          <span class="highlight"></span>
+          <span class="bar"></span>
+          <label>Bid value in Ether</label>
+        </div>
+      </div>
+
+
+      <input type="button" value="Preview" onclick="previewBid()" />
+      <input type="button" value="Submit" onclick="submitBid()" />
+    </div>
+
+
+    <div id="finishedTransation" style="display: none;">
+      <p class="primaryColor" style="font-size: 18px;"><b>BREAKING NEWS: You are in the lead!</b> The Ethereum transaction was submitted and your link will show here when the transaction is confirmed by the blockchain.</p>
+      <a id="viewTransactionLink" target="_blank" href="#"><input style="width: 250px;" type="button" value="Check Transaction Status" /></a>
+
+    </div>
+
+      <div style="position: fixed; right: 100px; bottom: 30px;">
+        <a target="_blank" href="https://www.stateofthedapps.com/"><img width="120px" src="img/stateoftheapps_logo.png" /></a>
+      </div>
+  </div>
+
+</body>
+</html>
